@@ -4,7 +4,7 @@ A modern, responsive luxury fashion website prototype built with React, TypeScri
 
 ## 🚀 Live Demo
 
-[View on GitHub Pages](https://yourusername.github.io/Yassera/)
+[View on GitHub Pages](https://kakveraglobal.github.io/yassera/)
 
 ## 🛠️ Tech Stack
 
