@@ -4,7 +4,8 @@ A modern, responsive luxury fashion website prototype built with React, TypeScri
 
 ## 🚀 Live Demo
 
-[View on GitHub Pages](https://kakveraglobal.github.io/yassera/)
+- **Production:** [https://yassera.com](https://yassera.com)
+- **Netlify:** [Coming Soon]
 
 ## 🛠️ Tech Stack
 
@@ -12,7 +13,10 @@ A modern, responsive luxury fashion website prototype built with React, TypeScri
 - **Build Tool:** Vite
 - **Styling:** Tailwind CSS
 - **Icons:** Lucide React
-- **Deployment:** GitHub Pages
+- **Database:** Supabase (PostgreSQL)
+- **Authentication:** Supabase Auth
+- **Deployment:** Netlify
+- **DNS:** Cloudflare
 
 ## 📦 Features
 
@@ -56,6 +60,19 @@ npm run dev
 npm run build
 ```
 
+### Environment Variables
+
+1. Copy the example environment file:
+```bash
+cp .env.example .env
+```
+
+2. Fill in your actual values in `.env`:
+   - Supabase URL and Anon Key
+   - Stripe keys (when ready)
+
+**Note:** Never commit your `.env` file to version control!
+
 ## 🏗️ Project Structure
 
 ```
@@ -73,7 +90,41 @@ src/
 
 ## 🔄 Deployment
 
-This project is automatically deployed to GitHub Pages on every push to the `main` branch.
+### Deploy to Netlify
+
+This project is configured for automatic deployment to Netlify.
+
+#### First-Time Setup
+
+1. **Sign up/Login to Netlify**
+   - Go to [netlify.com](https://netlify.com)
+   - Sign up with your GitHub account
+
+2. **Import Repository**
+   - Click "Add new site" → "Import an existing project"
+   - Choose "Deploy with GitHub"
+   - Select your `yassera` repository
+
+3. **Configure Build Settings**
+   - Build command: `npm run build` (auto-detected from `netlify.toml`)
+   - Publish directory: `dist` (auto-detected from `netlify.toml`)
+   - Branch to deploy: `main`
+
+4. **Add Environment Variables** (in Netlify dashboard)
+   - Go to Site Settings → Environment Variables
+   - Add your Supabase credentials:
+     - `VITE_SUPABASE_URL`
+     - `VITE_SUPABASE_ANON_KEY`
+
+5. **Set Up Custom Domain**
+   - Go to Domain settings → Add custom domain
+   - Enter `yassera.com`
+   - Follow Netlify's DNS instructions
+   - Update your Cloudflare DNS settings
+
+#### Continuous Deployment
+
+After initial setup, every push to `main` branch automatically deploys to Netlify.
 
 ## 🛒 Future E-commerce Integration
 
