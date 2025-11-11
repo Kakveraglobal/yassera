@@ -1,5 +1,8 @@
-import { Search, ShoppingBag, Menu, User, Heart } from 'lucide-react';
+import { Search, ShoppingBag, Menu, User, Heart, LogOut, Package } from 'lucide-react';
 import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import LoginModal from './auth/LoginModal';
+import SignUpModal from './auth/SignUpModal';
 
 interface HeaderProps {
   isScrolled: boolean;
@@ -7,6 +10,10 @@ interface HeaderProps {
 
 export default function Header({ isScrolled }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const { user, signOut } = useAuth();
 
   const menuItems = [
     'New',
@@ -64,9 +71,60 @@ export default function Header({ isScrolled }: HeaderProps) {
               <button className="hidden sm:block p-2 hover:bg-gray-50 transition-colors rounded-full" aria-label="Wishlist">
                 <Heart className="w-5 h-5" />
               </button>
-              <button className="hidden sm:block p-2 hover:bg-gray-50 transition-colors rounded-full" aria-label="Account">
-                <User className="w-5 h-5" />
-              </button>
+              
+              {/* User Account Button */}
+              {user ? (
+                <div className="hidden sm:block relative">
+                  <button
+                    onClick={() => setShowUserMenu(!showUserMenu)}
+                    className="p-2 hover:bg-gray-50 transition-colors rounded-full"
+                    aria-label="Account"
+                  >
+                    <User className="w-5 h-5" />
+                  </button>
+                  
+                  {/* User Dropdown Menu */}
+                  {showUserMenu && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <div className="px-4 py-2 border-b border-gray-200">
+                        <p className="text-sm font-medium text-gray-900 truncate">
+                          {user.user_metadata?.full_name || user.email}
+                        </p>
+                        <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setShowUserMenu(false);
+                          // Navigate to orders page (to be implemented)
+                        }}
+                        className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                      >
+                        <Package className="w-4 h-4 mr-2" />
+                        My Orders
+                      </button>
+                      <button
+                        onClick={async () => {
+                          await signOut();
+                          setShowUserMenu(false);
+                        }}
+                        className="w-full flex items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Sign Out
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={() => setShowLoginModal(true)}
+                  className="hidden sm:block p-2 hover:bg-gray-50 transition-colors rounded-full"
+                  aria-label="Account"
+                >
+                  <User className="w-5 h-5" />
+                </button>
+              )}
+              
               <button className="p-2 hover:bg-gray-50 transition-colors rounded-full" aria-label="Shopping bag">
                 <ShoppingBag className="w-5 h-5" />
               </button>
@@ -87,9 +145,56 @@ export default function Header({ isScrolled }: HeaderProps) {
                 {item}
               </a>
             ))}
+            {/* Mobile Auth Links */}
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              {user ? (
+                <>
+                  <p className="text-sm font-medium text-gray-900 mb-2">
+                    {user.user_metadata?.full_name || user.email}
+                  </p>
+                  <button
+                    onClick={async () => {
+                      await signOut();
+                      setIsMenuOpen(false);
+                    }}
+                    className="block w-full text-left py-2 text-sm text-red-600"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    setShowLoginModal(true);
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left py-2 text-sm font-medium"
+                >
+                  Sign In / Create Account
+                </button>
+              )}
+            </div>
           </nav>
         </div>
       )}
+
+      {/* Auth Modals */}
+      <LoginModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        onSwitchToSignUp={() => {
+          setShowLoginModal(false);
+          setShowSignUpModal(true);
+        }}
+      />
+      <SignUpModal
+        isOpen={showSignUpModal}
+        onClose={() => setShowSignUpModal(false)}
+        onSwitchToLogin={() => {
+          setShowSignUpModal(false);
+          setShowLoginModal(true);
+        }}
+      />
     </header>
   );
 }
