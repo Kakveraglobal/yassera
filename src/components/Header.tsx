@@ -17,15 +17,9 @@ export default function Header({ isScrolled }: HeaderProps) {
 
   const menuItems = [
     'New',
-    'Women',
     'Men',
-    'Jewelry & Watches',
-    'Leather Goods',
-    'Accessories',
-    'Shoes',
-    'Ready-to-Wear',
-    'Gifts',
-    'Art of Living'
+    'Women',
+    'Bags'
   ];
 
   return (
