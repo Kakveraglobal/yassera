@@ -143,7 +143,48 @@ npm run dev
 
 ---
 
-## Part 6: Verify Everything Works
+## Part 6: Configure Email Confirmation (Important!)
+
+### Step 10: Set Up Redirect URLs in Supabase
+
+Your site now has an email confirmation handler! You need to tell Supabase where to redirect users after they confirm their email.
+
+1. **Go to Supabase Dashboard** → **"Authentication"** (left sidebar)
+2. Click **"URL Configuration"** (under "Configuration")
+3. **Set Site URL:**
+   - Enter: `https://yassera.com` (or your Netlify URL if not using custom domain)
+4. **Add Redirect URLs:**
+   - Click **"Add URL"** and add each of these (one per line):
+     ```
+     https://yassera.com
+     https://www.yassera.com
+     https://incandescent-salmiakki-0ecf28.netlify.app
+     http://localhost:5173
+     ```
+   - These allow Supabase to redirect back to your site after email confirmation
+5. **Click "Save"** at the bottom
+
+### How Email Confirmation Works:
+
+1. User signs up → Supabase sends confirmation email
+2. User clicks link in email → Supabase redirects to your site with tokens
+3. Your site's `AuthCallback` component receives tokens → Confirms account
+4. User sees success message → Can now log in!
+
+### Optional: Disable Email Confirmation (For Testing)
+
+If you want to test without email confirmation:
+
+1. Supabase Dashboard → **"Authentication"** → **"Providers"**
+2. Click **"Email"**
+3. Toggle **"Confirm email"** to **OFF**
+4. Click **"Save"**
+
+Users can sign in immediately after signup. Re-enable for production!
+
+---
+
+## Part 7: Verify Everything Works
 
 ### Test Checklist
 
@@ -152,6 +193,8 @@ npm run dev
 2. Fill in details and submit
 3. Check for success message
 4. Check your email for confirmation link
+5. Click the confirmation link → Should see "Email Confirmed!" page
+6. Should automatically redirect to home page
 
 ✅ **Login Flow:**
 1. Click User icon → "Sign In"
@@ -171,7 +214,7 @@ npm run dev
 
 ---
 
-## Part 7: View Your Data in Supabase
+## Part 8: View Your Data in Supabase
 
 ### Explore Your Database
 
