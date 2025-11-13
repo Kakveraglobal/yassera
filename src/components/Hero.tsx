@@ -4,7 +4,7 @@ export default function Hero() {
       <div className="relative h-[600px] lg:h-[700px] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50">
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="https://images.pexels.com/photos/1336873/pexels-photo-1336873.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/main-page.jpg"
             alt="Luxury fashion collection"
             className="w-full h-full object-cover"
           />
@@ -14,7 +14,7 @@ export default function Hero() {
         <div className="relative z-10 h-full flex items-center justify-center">
           <div className="text-center text-white px-6">
             <h2 className="text-5xl lg:text-7xl font-light tracking-wider mb-6">
-              SPRING SUMMER 2025
+              SPRING SUMMER 2026
             </h2>
             <p className="text-xl lg:text-2xl font-light tracking-wide mb-8 opacity-95">
               The New Collection
@@ -32,7 +32,7 @@ export default function Hero() {
       <div className="relative h-[500px] lg:h-[600px] overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50 mt-1">
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="https://images.pexels.com/photos/1407355/pexels-photo-1407355.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/outfit-1.jpg"
             alt="Luxury accessories"
             className="w-full h-full object-cover"
           />
