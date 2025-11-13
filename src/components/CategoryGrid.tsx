@@ -33,14 +33,14 @@ export default function CategoryGrid() {
           <a
             key={index}
             href={category.link}
-            className="group relative overflow-hidden bg-bordeaux-50 aspect-[3/4]"
+            className="group relative overflow-hidden bg-bordeaux-100 aspect-[3/4]"
           >
             <img
               src={category.image}
               alt={category.title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-30 transition-all duration-300"></div>
+            <div className="absolute inset-0 bg-bordeaux-950 bg-opacity-30 group-hover:bg-opacity-40 transition-all duration-300"></div>
 
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <p className="text-xs tracking-widest mb-1 opacity-90">{category.subtitle}</p>

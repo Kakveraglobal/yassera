@@ -37,7 +37,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginM
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg max-w-md w-full p-8 relative">
+      <div className="bg-bordeaux-50 rounded-lg max-w-md w-full p-8 relative border border-bordeaux-200">
         <button
           onClick={onClose}
           className="absolute right-4 top-4 text-bordeaux-600 hover:text-bordeaux-950 transition"

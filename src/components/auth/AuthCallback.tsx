@@ -72,9 +72,9 @@ export default function AuthCallback() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-bordeaux-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+        <div className="bg-bordeaux-50 rounded-lg shadow-lg p-8 text-center border border-bordeaux-200">
           {status === 'loading' && (
             <>
               <Loader2 className="w-16 h-16 mx-auto mb-4 text-bordeaux-950 animate-spin" />

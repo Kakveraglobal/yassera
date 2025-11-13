@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-bordeaux-50">
       <Header isScrolled={isScrolled} />
       <main>
         <Hero />

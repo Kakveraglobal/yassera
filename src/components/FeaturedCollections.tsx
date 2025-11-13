@@ -30,14 +30,14 @@ export default function FeaturedCollections() {
           {collections.map((collection, index) => (
             <div
               key={index}
-              className="relative h-[500px] lg:h-[600px] overflow-hidden bg-bordeaux-50"
+              className="relative h-[500px] lg:h-[600px] overflow-hidden bg-bordeaux-100"
             >
               <img
                 src={collection.image}
                 alt={collection.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent opacity-70"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-bordeaux-950 via-bordeaux-900/60 to-transparent opacity-80"></div>
 
               <div
                 className={`absolute inset-0 flex items-center ${
@@ -53,7 +53,7 @@ export default function FeaturedCollections() {
                   </p>
                   <a
                     href="#"
-                    className="inline-block border-2 border-white text-white px-8 py-3 text-sm tracking-widest font-light hover:bg-white hover:text-black transition-all duration-300"
+                    className="inline-block border-2 border-white text-white px-8 py-3 text-sm tracking-widest font-light hover:bg-bordeaux-950 hover:border-bordeaux-950 transition-all duration-300"
                   >
                     VIEW COLLECTION
                   </a>
@@ -66,7 +66,7 @@ export default function FeaturedCollections() {
 
       <div className="max-w-screen-2xl mx-auto px-6 mt-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-8 border border-bordeaux-200 hover:border-bordeaux-400 transition-colors">
+          <div className="text-center p-8 border border-bordeaux-300 hover:border-bordeaux-600 bg-bordeaux-50 hover:bg-bordeaux-100 transition-colors">
             <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
               <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -78,7 +78,7 @@ export default function FeaturedCollections() {
             </p>
           </div>
 
-          <div className="text-center p-8 border border-bordeaux-200 hover:border-bordeaux-400 transition-colors">
+          <div className="text-center p-8 border border-bordeaux-300 hover:border-bordeaux-600 bg-bordeaux-50 hover:bg-bordeaux-100 transition-colors">
             <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
               <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
@@ -90,7 +90,7 @@ export default function FeaturedCollections() {
             </p>
           </div>
 
-          <div className="text-center p-8 border border-bordeaux-200 hover:border-bordeaux-400 transition-colors">
+          <div className="text-center p-8 border border-bordeaux-300 hover:border-bordeaux-600 bg-bordeaux-50 hover:bg-bordeaux-100 transition-colors">
             <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center">
               <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />

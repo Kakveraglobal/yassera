@@ -59,10 +59,10 @@ export default function Header({ isScrolled }: HeaderProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-sm' : 'bg-white'
+        isScrolled ? 'bg-bordeaux-50 shadow-sm border-b border-bordeaux-200' : 'bg-bordeaux-50'
       }`}
     >
-      <div className="border-b border-bordeaux-200">
+      <div className="border-b border-bordeaux-300">
         <div className="max-w-screen-2xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             <button
@@ -97,7 +97,7 @@ export default function Header({ isScrolled }: HeaderProps) {
                 
                 {/* Dropdown Menu */}
                 {showNewDropdown && (
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-bordeaux-200 py-2 z-50">
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-bordeaux-50 rounded-lg shadow-lg border border-bordeaux-300 py-2 z-50">
                     {newSubsections.map((subsection) => (
                       <div
                         key={subsection.name}
@@ -107,7 +107,7 @@ export default function Header({ isScrolled }: HeaderProps) {
                       >
                         <a
                           href="#"
-                          className="flex items-center justify-between px-4 py-2 text-sm font-light tracking-wide hover:bg-bordeaux-50 transition-colors"
+                          className="flex items-center justify-between px-4 py-2 text-sm font-light tracking-wide hover:bg-bordeaux-100 transition-colors"
                           onClick={(e) => {
                             e.preventDefault();
                             if (!subsection.subItems) {
@@ -124,12 +124,12 @@ export default function Header({ isScrolled }: HeaderProps) {
                         
                         {/* Nested Submenu */}
                         {subsection.subItems && hoveredSubsection === subsection.name && (
-                          <div className="absolute left-full top-0 ml-1 w-48 bg-white rounded-lg shadow-lg border border-bordeaux-200 py-2 z-50">
+                          <div className="absolute left-full top-0 ml-1 w-48 bg-bordeaux-50 rounded-lg shadow-lg border border-bordeaux-300 py-2 z-50">
                             {subsection.subItems.map((subItem) => (
                               <a
                                 key={subItem}
                                 href="#"
-                                className="block px-4 py-2 text-sm font-light tracking-wide hover:bg-bordeaux-50 transition-colors"
+                                className="block px-4 py-2 text-sm font-light tracking-wide hover:bg-bordeaux-100 transition-colors"
                                 onClick={(e) => {
                                   e.preventDefault();
                                   // Handle navigation to sub-item (to be implemented)
@@ -181,7 +181,7 @@ export default function Header({ isScrolled }: HeaderProps) {
                   
                   {/* User Dropdown Menu */}
                   {showUserMenu && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-bordeaux-200 py-2 z-50">
+                    <div className="absolute right-0 mt-2 w-48 bg-bordeaux-50 rounded-lg shadow-lg border border-bordeaux-300 py-2 z-50">
                       <div className="px-4 py-2 border-b border-bordeaux-200">
                         <p className="text-sm font-medium text-gray-900 truncate">
                           {user.user_metadata?.full_name || user.email}
@@ -193,7 +193,7 @@ export default function Header({ isScrolled }: HeaderProps) {
                           setShowUserMenu(false);
                           // Navigate to orders page (to be implemented)
                         }}
-                        className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-bordeaux-50 transition-colors"
+                        className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-bordeaux-100 transition-colors"
                       >
                         <Package className="w-4 h-4 mr-2" />
                         My Orders
@@ -203,7 +203,7 @@ export default function Header({ isScrolled }: HeaderProps) {
                           await signOut();
                           setShowUserMenu(false);
                         }}
-                        className="w-full flex items-center px-4 py-2 text-sm text-bordeaux-950 hover:bg-bordeaux-50 transition-colors"
+                        className="w-full flex items-center px-4 py-2 text-sm text-bordeaux-950 hover:bg-bordeaux-100 transition-colors"
                       >
                         <LogOut className="w-4 h-4 mr-2" />
                         Sign Out
@@ -230,7 +230,7 @@ export default function Header({ isScrolled }: HeaderProps) {
       </div>
 
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-bordeaux-200 shadow-lg">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-bordeaux-50 border-b border-bordeaux-300 shadow-lg">
           <nav className="max-w-screen-2xl mx-auto px-6 py-4">
             {/* New Section with Mobile Dropdown */}
             <div>
