@@ -33,7 +33,7 @@ export default function CategoryGrid() {
           <a
             key={index}
             href={category.link}
-            className="group relative overflow-hidden bg-gray-100 aspect-[3/4]"
+            className="group relative overflow-hidden bg-bordeaux-50 aspect-[3/4]"
           >
             <img
               src={category.image}

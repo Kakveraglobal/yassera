@@ -40,7 +40,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginM
       <div className="bg-white rounded-lg max-w-md w-full p-8 relative">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition"
+          className="absolute right-4 top-4 text-bordeaux-600 hover:text-bordeaux-950 transition"
           aria-label="Close"
         >
           <X size={24} />
@@ -49,7 +49,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginM
         <h2 className="text-3xl font-serif mb-6 text-center">Welcome Back</h2>
 
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4 text-sm">
+          <div className="bg-bordeaux-50 text-bordeaux-950 p-3 rounded-lg mb-4 text-sm">
             {error}
           </div>
         )}
@@ -64,7 +64,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginM
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full border border-bordeaux-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-bordeaux-950 focus:border-transparent"
               placeholder="you@example.com"
               required
               autoComplete="email"
@@ -80,7 +80,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginM
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full border border-bordeaux-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-bordeaux-950 focus:border-transparent"
               placeholder="••••••••"
               required
               autoComplete="current-password"
@@ -90,7 +90,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginM
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:bg-gray-400 disabled:cursor-not-allowed transition font-medium"
+            className="w-full bg-bordeaux-950 text-white py-3 rounded-lg hover:bg-bordeaux-900 disabled:bg-bordeaux-400 disabled:cursor-not-allowed transition font-medium"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
@@ -100,7 +100,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignUp }: LoginM
           Don't have an account?{' '}
           <button
             onClick={onSwitchToSignUp}
-            className="text-black font-medium hover:underline"
+            className="text-bordeaux-950 font-medium hover:underline"
           >
             Create Account
           </button>

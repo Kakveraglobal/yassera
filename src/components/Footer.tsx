@@ -37,41 +37,41 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-neutral-900 text-white mt-20">
+    <footer className="bg-black text-white mt-20">
       <div className="max-w-screen-2xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <h3 className="text-2xl font-light tracking-wider mb-6">
               YASSÉRA
             </h3>
-            <p className="text-sm font-light text-gray-400 leading-relaxed mb-6">
+            <p className="text-sm font-light text-bordeaux-300 leading-relaxed mb-6">
               Since 1854, bringing perfection to the art of travel and elegance to everyday life.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-white transition-colors"
+                className="w-10 h-10 border border-bordeaux-800 flex items-center justify-center hover:border-bordeaux-400 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-white transition-colors"
+                className="w-10 h-10 border border-bordeaux-800 flex items-center justify-center hover:border-bordeaux-400 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-white transition-colors"
+                className="w-10 h-10 border border-bordeaux-800 flex items-center justify-center hover:border-bordeaux-400 transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 border border-gray-700 flex items-center justify-center hover:border-white transition-colors"
+                className="w-10 h-10 border border-bordeaux-800 flex items-center justify-center hover:border-bordeaux-400 transition-colors"
                 aria-label="Youtube"
               >
                 <Youtube className="w-4 h-4" />
@@ -89,7 +89,7 @@ export default function Footer() {
                   <li key={linkIndex}>
                     <a
                       href="#"
-                      className="text-sm font-light text-gray-400 hover:text-white transition-colors"
+                      className="text-sm font-light text-bordeaux-300 hover:text-white transition-colors"
                     >
                       {link}
                     </a>
@@ -100,28 +100,28 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-bordeaux-900 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-xs font-light text-gray-400">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-xs font-light text-bordeaux-300">
               <span>Ship to: United States</span>
               <span>English (US)</span>
             </div>
-            <p className="text-xs font-light text-gray-400">
+            <p className="text-xs font-light text-bordeaux-300">
               © 2025 YASSÉRA. All rights reserved.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-gray-800">
+      <div className="border-t border-bordeaux-900">
         <div className="max-w-screen-2xl mx-auto px-6 py-6">
           <div className="flex flex-wrap justify-center items-center gap-4 opacity-50">
-            <span className="text-xs font-light text-gray-400">PAYMENT METHODS:</span>
+            <span className="text-xs font-light text-bordeaux-300">PAYMENT METHODS:</span>
             <div className="flex gap-3">
               {['VISA', 'MASTERCARD', 'AMEX', 'PAYPAL', 'KLARNA'].map((method) => (
                 <div
                   key={method}
-                  className="px-3 py-1 border border-gray-700 text-xs font-light text-gray-400"
+                  className="px-3 py-1 border border-bordeaux-800 text-xs font-light text-bordeaux-300"
                 >
                   {method}
                 </div>

@@ -77,9 +77,9 @@ export default function AuthCallback() {
         <div className="bg-white rounded-lg shadow-lg p-8 text-center">
           {status === 'loading' && (
             <>
-              <Loader2 className="w-16 h-16 mx-auto mb-4 text-black animate-spin" />
+              <Loader2 className="w-16 h-16 mx-auto mb-4 text-bordeaux-950 animate-spin" />
               <h2 className="text-2xl font-serif mb-2">Confirming Your Email</h2>
-              <p className="text-gray-600">{message}</p>
+              <p className="text-bordeaux-800">{message}</p>
             </>
           )}
 
@@ -87,26 +87,26 @@ export default function AuthCallback() {
             <>
               <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-600" />
               <h2 className="text-2xl font-serif mb-2 text-green-600">Email Confirmed!</h2>
-              <p className="text-gray-600 mb-4">{message}</p>
-              <p className="text-sm text-gray-500">You can now sign in to your account.</p>
+              <p className="text-bordeaux-800 mb-4">{message}</p>
+              <p className="text-sm text-bordeaux-700">You can now sign in to your account.</p>
             </>
           )}
 
           {status === 'error' && (
             <>
-              <XCircle className="w-16 h-16 mx-auto mb-4 text-red-600" />
-              <h2 className="text-2xl font-serif mb-2 text-red-600">Confirmation Failed</h2>
-              <p className="text-gray-600 mb-4">{message}</p>
+              <XCircle className="w-16 h-16 mx-auto mb-4 text-bordeaux-950" />
+              <h2 className="text-2xl font-serif mb-2 text-bordeaux-950">Confirmation Failed</h2>
+              <p className="text-bordeaux-800 mb-4">{message}</p>
               <div className="space-y-2">
                 <a
                   href="/"
-                  className="inline-block bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition"
+                  className="inline-block bg-bordeaux-950 text-white px-6 py-2 rounded-lg hover:bg-bordeaux-900 transition"
                 >
                   Go to Home
                 </a>
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-bordeaux-700 mt-4">
                   Need help? Try{' '}
-                  <a href="/" className="text-black underline">
+                  <a href="/" className="text-bordeaux-950 underline">
                     signing up again
                   </a>
                   .

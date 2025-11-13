@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <section className="relative mt-20">
-      <div className="relative h-[600px] lg:h-[700px] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50">
+      <div className="relative h-[600px] lg:h-[700px] overflow-hidden bg-gradient-to-br from-bordeaux-50 to-white">
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src="/main-page.jpg"
@@ -21,7 +21,7 @@ export default function Hero() {
             </p>
             <a
               href="#"
-              className="inline-block bg-white text-black px-10 py-4 text-sm tracking-widest font-light hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+              className="inline-block bg-white text-bordeaux-950 px-10 py-4 text-sm tracking-widest font-light hover:bg-bordeaux-50 transition-all duration-300 transform hover:scale-105"
             >
               DISCOVER
             </a>
@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative h-[500px] lg:h-[600px] overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50 mt-1">
+      <div className="relative h-[500px] lg:h-[600px] overflow-hidden bg-gradient-to-br from-bordeaux-50 to-bordeaux-100 mt-1">
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src="/outfit-1.jpg"

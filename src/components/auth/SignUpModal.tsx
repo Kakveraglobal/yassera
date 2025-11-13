@@ -64,7 +64,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
       <div className="bg-white rounded-lg max-w-md w-full p-8 relative max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition"
+          className="absolute right-4 top-4 text-bordeaux-600 hover:text-bordeaux-950 transition"
           aria-label="Close"
         >
           <X size={24} />
@@ -73,7 +73,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
         <h2 className="text-3xl font-serif mb-6 text-center">Create Account</h2>
 
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4 text-sm">
+          <div className="bg-bordeaux-50 text-bordeaux-950 p-3 rounded-lg mb-4 text-sm">
             {error}
           </div>
         )}
@@ -94,7 +94,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
               type="text"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full border border-bordeaux-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-bordeaux-950 focus:border-transparent"
               placeholder="John Doe"
               required
               autoComplete="name"
@@ -110,7 +110,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full border border-bordeaux-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-bordeaux-950 focus:border-transparent"
               placeholder="you@example.com"
               required
               autoComplete="email"
@@ -126,7 +126,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full border border-bordeaux-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-bordeaux-950 focus:border-transparent"
               placeholder="••••••••"
               required
               autoComplete="new-password"
@@ -144,7 +144,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              className="w-full border border-bordeaux-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-bordeaux-950 focus:border-transparent"
               placeholder="••••••••"
               required
               autoComplete="new-password"
@@ -154,7 +154,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 disabled:bg-gray-400 disabled:cursor-not-allowed transition font-medium"
+            className="w-full bg-bordeaux-950 text-white py-3 rounded-lg hover:bg-bordeaux-900 disabled:bg-bordeaux-400 disabled:cursor-not-allowed transition font-medium"
           >
             {loading ? 'Creating Account...' : 'Create Account'}
           </button>
@@ -164,7 +164,7 @@ export default function SignUpModal({ isOpen, onClose, onSwitchToLogin }: SignUp
           Already have an account?{' '}
           <button
             onClick={onSwitchToLogin}
-            className="text-black font-medium hover:underline"
+            className="text-bordeaux-950 font-medium hover:underline"
           >
             Sign In
           </button>
