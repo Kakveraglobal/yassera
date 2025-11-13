@@ -1,4 +1,4 @@
-import { Search, ShoppingBag, Menu, User, Heart, LogOut, Package, ChevronDown } from 'lucide-react';
+import { Search, ShoppingBag, Menu, User, Heart, LogOut, Package, ChevronDown, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import LoginModal from './auth/LoginModal';
@@ -8,6 +8,11 @@ interface HeaderProps {
   isScrolled: boolean;
 }
 
+interface SubsectionItem {
+  name: string;
+  subItems?: string[];
+}
+
 export default function Header({ isScrolled }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -15,6 +20,8 @@ export default function Header({ isScrolled }: HeaderProps) {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showNewDropdown, setShowNewDropdown] = useState(false);
   const [showNewMobile, setShowNewMobile] = useState(false);
+  const [hoveredSubsection, setHoveredSubsection] = useState<string | null>(null);
+  const [expandedMobileSubsections, setExpandedMobileSubsections] = useState<Set<string>>(new Set());
   const { user, signOut } = useAuth();
 
   const menuItems = [
@@ -23,13 +30,31 @@ export default function Header({ isScrolled }: HeaderProps) {
     'Bags'
   ];
 
-  const newSubsections = [
-    '2026 Men',
-    '2026 Women',
-    'Bags',
-    'Perfume',
-    'Skin Care'
+  const newSubsections: SubsectionItem[] = [
+    { name: '2026 Men' },
+    { name: '2026 Women' },
+    { 
+      name: 'Bags',
+      subItems: ["Women's bag", "Men's bag"]
+    },
+    { 
+      name: 'Perfume',
+      subItems: ['Male', 'Female']
+    },
+    { name: 'Skin Care' }
   ];
+
+  const toggleMobileSubsection = (subsectionName: string) => {
+    setExpandedMobileSubsections(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(subsectionName)) {
+        newSet.delete(subsectionName);
+      } else {
+        newSet.add(subsectionName);
+      }
+      return newSet;
+    });
+  };
 
   return (
     <header
@@ -74,18 +99,49 @@ export default function Header({ isScrolled }: HeaderProps) {
                 {showNewDropdown && (
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                     {newSubsections.map((subsection) => (
-                      <a
-                        key={subsection}
-                        href="#"
-                        className="block px-4 py-2 text-sm font-light tracking-wide hover:bg-gray-50 transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          // Handle navigation to subsection (to be implemented)
-                          setShowNewDropdown(false);
-                        }}
+                      <div
+                        key={subsection.name}
+                        className="relative"
+                        onMouseEnter={() => subsection.subItems && setHoveredSubsection(subsection.name)}
+                        onMouseLeave={() => setHoveredSubsection(null)}
                       >
-                        {subsection}
-                      </a>
+                        <a
+                          href="#"
+                          className="flex items-center justify-between px-4 py-2 text-sm font-light tracking-wide hover:bg-gray-50 transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (!subsection.subItems) {
+                              // Handle navigation to subsection (to be implemented)
+                              setShowNewDropdown(false);
+                            }
+                          }}
+                        >
+                          <span>{subsection.name}</span>
+                          {subsection.subItems && (
+                            <ChevronRight className="w-4 h-4" />
+                          )}
+                        </a>
+                        
+                        {/* Nested Submenu */}
+                        {subsection.subItems && hoveredSubsection === subsection.name && (
+                          <div className="absolute left-full top-0 ml-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                            {subsection.subItems.map((subItem) => (
+                              <a
+                                key={subItem}
+                                href="#"
+                                className="block px-4 py-2 text-sm font-light tracking-wide hover:bg-gray-50 transition-colors"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  // Handle navigation to sub-item (to be implemented)
+                                  setShowNewDropdown(false);
+                                }}
+                              >
+                                {subItem}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 )}
@@ -190,19 +246,55 @@ export default function Header({ isScrolled }: HeaderProps) {
               {showNewMobile && (
                 <div className="pl-4 py-2 space-y-1 border-b border-gray-100">
                   {newSubsections.map((subsection) => (
-                    <a
-                      key={subsection}
-                      href="#"
-                      className="block py-2 text-sm font-light text-gray-600 hover:text-black transition-colors"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        // Handle navigation to subsection (to be implemented)
-                        setShowNewMobile(false);
-                        setIsMenuOpen(false);
-                      }}
-                    >
-                      {subsection}
-                    </a>
+                    <div key={subsection.name}>
+                      {subsection.subItems ? (
+                        <>
+                          <button
+                            onClick={() => toggleMobileSubsection(subsection.name)}
+                            className="flex items-center justify-between w-full py-2 text-sm font-light text-gray-600 hover:text-black transition-colors"
+                          >
+                            <span>{subsection.name}</span>
+                            <ChevronDown 
+                              className={`w-4 h-4 transition-transform ${
+                                expandedMobileSubsections.has(subsection.name) ? 'rotate-180' : ''
+                              }`} 
+                            />
+                          </button>
+                          {expandedMobileSubsections.has(subsection.name) && (
+                            <div className="pl-4 py-1 space-y-1">
+                              {subsection.subItems.map((subItem) => (
+                                <a
+                                  key={subItem}
+                                  href="#"
+                                  className="block py-2 text-sm font-light text-gray-500 hover:text-black transition-colors"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    // Handle navigation to sub-item (to be implemented)
+                                    setShowNewMobile(false);
+                                    setIsMenuOpen(false);
+                                  }}
+                                >
+                                  {subItem}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <a
+                          href="#"
+                          className="block py-2 text-sm font-light text-gray-600 hover:text-black transition-colors"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            // Handle navigation to subsection (to be implemented)
+                            setShowNewMobile(false);
+                            setIsMenuOpen(false);
+                          }}
+                        >
+                          {subsection.name}
+                        </a>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
